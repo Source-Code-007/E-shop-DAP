@@ -56,7 +56,7 @@ const ProductDetailsModal = ({ product }) => {
                         <div className="flex gap-2 items-center justify-between">
                             <h2 className="font-semibold">Invoice no: {id}</h2>
 
-                            <div className="space-y-1">
+                            <div className="space-y-1 text-right">
                                 <p>BTI Premier Shopping Mall</p>
                                 <p>Uttar Badda, Dhaka</p>
                             </div>

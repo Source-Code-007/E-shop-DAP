@@ -11,6 +11,8 @@ import Signin from './pages/signin/Signin.jsx'
 import store from './redux/store.js'
 import { Provider } from 'react-redux'
 import Signup from './pages/signup/Signup.jsx'
+import Profile from './pages/profile/Profile.jsx'
+import PrivateRoute from './privateRoute/PrivateRoute.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/signin',
         element: <Signin />
+      },
+      {
+        path: '/profile',
+        element: <PrivateRoute><Profile /></PrivateRoute> 
       },
     ]
   }

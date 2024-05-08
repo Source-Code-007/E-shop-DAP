@@ -39,6 +39,7 @@ const Nav = () => {
             <li><ActiveLink to={'/about-us'}>About us</ActiveLink></li>
             <li><ActiveLink to={'/trendy-products'}>Trendy Products</ActiveLink></li>
             <li><ActiveLink to={'/blogs'}>Blogs</ActiveLink></li>
+            <li><ActiveLink to={'/profile'}>Profile</ActiveLink></li>
 
         </>
 
