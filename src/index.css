@@ -13,3 +13,10 @@
 .cmn-btn-two{
     @apply bg-[#b24911] hover:bg-[#b24911a4] shadow px-6 py-3 rounded text-white font-bold
 }
+
+
+@media screen {
+  #printContent {
+    display: none;
+  }
+}
