@@ -3,7 +3,10 @@
 
 ## Important features
 
+- User registration
+- User login
+- User authentication by RTK query 
+- Private route
 - Showing trendy products 
 - product details 
-- Private route by RTK query 
 - Download invoice PDF
