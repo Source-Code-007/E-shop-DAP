@@ -2,10 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MyMotion from "../../components/helpingCompo/MyMotion";
 import { GiLinkedRings } from "react-icons/gi";
+import ProductDetailsModal from "../../components/helpingCompo/ProductDetailsModal";
 
 const Homepage = () => {
     const [productsLoading, setProductsLoading] = useState(false)
     const [products, setProducts] = useState([])
+    const [product, setProduct] = useState({})
 
     useEffect(() => {
         setProductsLoading(true)
@@ -26,16 +28,12 @@ const Homepage = () => {
     }
 
     return (
-        <section className="p-2 font-bold my-10">
+        <section className="p-2 font-bold py-[100px]">
             <div className="my-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
                 {products.map((product, ind) => {
                     return <MyMotion key={ind} y={20}>
-                        <div className="shadow-md rounded cursor-pointer overflow-hidden relative group">
+                        <div className="shadow-md rounded cursor-pointer overflow-hidden relative group" onClick={()=> {setProduct(product); document.getElementById('productDetailsModal').showModal()}}>
                             <img src={product.image} alt={product.title} className="w-full h-[120px] md:h-[150px] group-hover:scale-105 transition-all mb-2" />
-
-                            {/* <div className="absolute top-0 left-0 right-0 bottom-0 bg-slate-500 opacity-0 transition-opacity duration-200 group-hover:opacity-100 flex items-center justify-center">
-                                <GiLinkedRings size={24} className="text-orange-500" />
-                            </div> */}
 
                             <div className="p-2 space-y-1">
                                 <h2 className="truncate">{product.title}</h2>
@@ -52,6 +50,10 @@ const Homepage = () => {
                     </MyMotion>
                 })}
             </div>
+
+
+{/* Product details  modal */}
+<ProductDetailsModal product={product}/>
 
         </section>
     );

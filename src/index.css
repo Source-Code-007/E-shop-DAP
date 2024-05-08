@@ -8,3 +8,8 @@
 .my-container{
   @apply max-w-7xl container mx-4 sm:mx-8 md:mx-12 xl:mx-auto
 }
+
+
+.cmn-btn-two{
+    @apply bg-[#b24911] hover:bg-[#b24911a4] shadow px-6 py-3 rounded text-white font-bold
+}

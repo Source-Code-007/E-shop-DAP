@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Footer from "../shared/Footer/Footer";
+import Nav from "../shared/Nav/Nav";
 
 const LayoutOne = () => {
     return (
         <div>
-            <h2>Navbar</h2>
+            <Nav/>
             <Outlet />
             <Footer/>
 

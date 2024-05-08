@@ -4,6 +4,10 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LayoutOne from './layout/LayoutOne.jsx'
 import Homepage from './pages/homepage/Homepage.jsx'
+import AboutUs from './pages/aboutUs/AboutUs.jsx'
+import TrendyProducts from './pages/trendyProducts/TrendyProducts.jsx'
+import Blogs from './pages/blogs/Blogs.jsx'
+import Signin from './pages/signin/Signin.jsx'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +17,23 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Homepage/>
-      }
+      },
+      {
+        path: '/about-us',
+        element: <AboutUs/>
+      },
+      {
+        path: '/trendy-products',
+        element: <TrendyProducts/>
+      },
+      {
+        path: '/blogs',
+        element: <Blogs/>
+      },
+      {
+        path: '/signin',
+        element: <Signin/>
+      },
     ]
   }
 ])
