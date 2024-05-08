@@ -32,7 +32,7 @@ const Homepage = () => {
             <div className="my-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
                 {products.map((product, ind) => {
                     return <MyMotion key={ind} y={20}>
-                        <div className="shadow-md rounded cursor-pointer overflow-hidden relative group" onClick={()=> {setProduct(product); document.getElementById('productDetailsModal').showModal()}}>
+                        <div className="shadow-md rounded cursor-pointer overflow-hidden relative group" onClick={() => { setProduct(product); document.getElementById('productDetailsModal').showModal() }}>
                             <img src={product.image} alt={product.title} className="w-full h-[120px] md:h-[150px] group-hover:scale-105 transition-all mb-2" />
 
                             <div className="p-2 space-y-1">
@@ -44,7 +44,7 @@ const Homepage = () => {
 
                             {/* Hover effect */}
                             <div className="bg-slate-900 bg-opacity-60 h-full w-full absolute top-0 left-0 right-0 transition-all duration-200 opacity-0 group-hover:opacity-100 flex items-center justify-center">
-                                <GiLinkedRings size={24} className="text-orange-500" />
+                                <GiLinkedRings size={28} className="text-orange-500" />
                             </div>
                         </div>
                     </MyMotion>
@@ -52,8 +52,8 @@ const Homepage = () => {
             </div>
 
 
-{/* Product details  modal */}
-<ProductDetailsModal product={product}/>
+            {/* Product details  modal */}
+            <ProductDetailsModal product={product} />
 
         </section>
     );

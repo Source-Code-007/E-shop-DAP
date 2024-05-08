@@ -8,31 +8,38 @@ import AboutUs from './pages/aboutUs/AboutUs.jsx'
 import TrendyProducts from './pages/trendyProducts/TrendyProducts.jsx'
 import Blogs from './pages/blogs/Blogs.jsx'
 import Signin from './pages/signin/Signin.jsx'
+import store from './redux/store.js'
+import { Provider } from 'react-redux'
+import Signup from './pages/signup/Signup.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <LayoutOne/>,
-    children:[
+    element: <LayoutOne />,
+    children: [
       {
         path: '/',
-        element: <Homepage/>
+        element: <Homepage />
       },
       {
         path: '/about-us',
-        element: <AboutUs/>
+        element: <AboutUs />
       },
       {
         path: '/trendy-products',
-        element: <TrendyProducts/>
+        element: <TrendyProducts />
       },
       {
         path: '/blogs',
-        element: <Blogs/>
+        element: <Blogs />
+      },
+      {
+        path: '/signup',
+        element: <Signup />
       },
       {
         path: '/signin',
-        element: <Signin/>
+        element: <Signin />
       },
     ]
   }
@@ -40,6 +47,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>,
 )

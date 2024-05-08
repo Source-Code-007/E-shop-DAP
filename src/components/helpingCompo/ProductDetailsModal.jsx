@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useRef } from "react";
 import { BiCategory, BiPrinter } from "react-icons/bi";
 import { FaXmark } from "react-icons/fa6";
 import { useReactToPrint } from "react-to-print";
@@ -11,7 +12,7 @@ const ProductDetailsModal = ({ product }) => {
     const printContentRef = useRef(null)
     const handlePrint = useReactToPrint({
         content: () => printContentRef.current,
-        documentTitle: `Invoice-${title}-${id}`,
+        documentTitle: `Invoice-${id}`,
         // onBeforePrint: () => {console.log("before printing...");},
         // onAfterPrint: () => {console.log("after printing...");},
         removeAfterPrint: true,
@@ -29,6 +30,15 @@ const ProductDetailsModal = ({ product }) => {
                     <p className="text-md font-bold">${price}</p>
                 </div>
 
+
+                <div className="modal-action">
+                    <form method="dialog">
+                        <button className="h-6 w-6 rounded-full flex justify-center items-center bg-orange-500 shadow-md absolute top-1 right-1"><FaXmark /></button>
+
+                        {/* Print */}
+                        <span onClick={() => { handlePrint() }} className="h-6 w-6 rounded-full flex justify-center items-center bg-[#0f1d22] text-white shadow-md absolute top-1 right-10 cursor-pointer"><BiPrinter /></span>
+                    </form>
+                </div>
 
 
 
@@ -91,42 +101,42 @@ const ProductDetailsModal = ({ product }) => {
                                 <tbody>
 
                                     {
-                                        [1,2,3,4,5].map((elem, ind)=> {
-                                            return   <tr key={ind} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 font-semibold">
-                                            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {ind+1}
-                                            </th>
-                                            <td className="px-6 py-4">
-                                                {title}
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                {category}
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                {ind+2}
-                                            </td>
-                                            <td className="px-6 py-4">
-                                                {price}
-                                            </td>
-                                        </tr>
+                                        [1, 2, 3, 4, 5].map((elem, ind) => {
+                                            return <tr key={ind} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 font-semibold">
+                                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {ind + 1}
+                                                </th>
+                                                <td className="px-6 py-4">
+                                                    {title}
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    {category}
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    {ind + 2}
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    {price}
+                                                </td>
+                                            </tr>
                                         })
                                     }
                                     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 font-semibold">
                                         <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            
+
                                         </th>
                                         <td className="px-6 py-4">
-                                            
+
                                         </td>
                                         <td className="px-6 py-4">
-                                            
+
                                         </td>
-                                       
+
                                         <td className="px-6 py-4">
-Total
+                                            Total
                                         </td>
                                         <td className="px-6 py-4">
-                                           {price*5}
+                                            {price * 5}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -136,14 +146,6 @@ Total
                     </div>
                 </div>
 
-                <div className="modal-action">
-                    <form method="dialog">
-                        <button className="h-6 w-6 rounded-full flex justify-center items-center bg-orange-500 shadow-md absolute top-1 right-1"><FaXmark /></button>
-
-                        {/* Print */}
-                        <span onClick={() => { handlePrint() }} className="h-6 w-6 rounded-full flex justify-center items-center bg-[#0f1d22] text-white shadow-md absolute top-1 right-10 cursor-pointer"><BiPrinter /></span>
-                    </form>
-                </div>
 
             </div>
         </dialog>

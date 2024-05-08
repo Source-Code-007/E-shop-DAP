@@ -3,18 +3,44 @@
 @tailwind utilities;
 
 
+/* Input autofill */
+input:-internal-autofill-selected,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus,
+select:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #0f172a inset !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: #F3F3F3;
+}
+
 
 /* Common layout */
 .my-container{
   @apply max-w-7xl container mx-4 sm:mx-8 md:mx-12 xl:mx-auto
 }
 
-
+.cmn-btn-one{
+  @apply px-5 py-3 rounded text-white font-bold;
+  background-image: radial-gradient(circle at 28% 93%, rgba(2, 2, 2,0.04) 0%, rgba(2, 2, 2,0.04) 50%,rgba(223, 223, 223,0.04) 50%, rgba(223, 223, 223,0.04) 100%),radial-gradient(circle at 13% 75%, rgba(185, 185, 185,0.04) 0%, rgba(185, 185, 185,0.04) 50%,rgba(25, 25, 25,0.04) 50%, rgba(25, 25, 25,0.04) 100%),radial-gradient(circle at 79% 39%, rgba(34, 34, 34,0.04) 0%, rgba(34, 34, 34,0.04) 50%,rgba(57, 57, 57,0.04) 50%, rgba(57, 57, 57,0.04) 100%),linear-gradient(56deg, orange, #b24911);
+}
 .cmn-btn-two{
     @apply bg-[#b24911] hover:bg-[#b24911a4] shadow px-6 py-3 rounded text-white font-bold
 }
 
+.my-inp{
+  @apply block w-full p-3 bg-slate-900 text-slate-200 placeholder:text-slate-600 shadow-inner shadow-slate-800 border-none rounded focus:outline-none
+}
 
+/* Initially hide print content */
 @media screen {
   #printContent {
     display: none;

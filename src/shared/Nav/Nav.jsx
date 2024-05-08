@@ -3,10 +3,18 @@ import ActiveLink from "../../components/helpingCompo/ActiveLink"
 import { Link } from "react-router-dom";
 import logo from '/assets/img/logo.png'
 import MyMotion from "../../components/helpingCompo/MyMotion";
+import { useSelector } from "react-redux";
+import { useSignOutMutation } from "../../redux/api/authAPI";
 
 
 const Nav = () => {
     const [isTop, setIsTop] = useState(true);
+    const { isAuthLoading, user } = useSelector((state) => state.auth);
+
+
+    const [signOut, { isLoading, isSuccess, isError, error }] = useSignOutMutation();
+
+    console.log(user, 'user from nav');
 
 
     // for conditionally set navbar bg
@@ -37,7 +45,6 @@ const Nav = () => {
     return (
 
 
-
         <nav className={`navbar px-8 bg-slate-900 transition duration-500 shadow ${isTop ? 'bg-opacity-25' : 'bg-opacity-90'} fixed z-50`}>
             <div className="navbar-start w-fit md:w-3/6">
                 <div className="dropdown">
@@ -62,9 +69,16 @@ const Nav = () => {
             </div>
             <div className="navbar-end w-full md:w-3/6">
                 <MyMotion x={10}>
-                    <Link to={'/signin'}>
-                    <button className="cmn-btn-two">Signin</button>
-                    </Link>
+                    {
+                        isAuthLoading ? <span className="loading loading-ring loading-lg"></span> :
+                            user ?
+                                <div className="flex items-center justify-center gap-2">
+                                    <img src={user?.photoURL} alt={user?.displayName} className="h-10 w-10 rounded-full" />
+                                    <button className="cmn-btn-one" onClick={()=> signOut()}>Signout</button> 
+                                </div>: <Link to={'/signin'}>
+                                    <button className="cmn-btn-one">Signin</button>
+                                </Link>
+                    }
                 </MyMotion>
             </div>
         </nav>
