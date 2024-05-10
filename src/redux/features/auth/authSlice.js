@@ -1,7 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth"
-import { app } from "../../../../firebase.config"
-
 
 
 const initialState = {
