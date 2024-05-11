@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const LayoutOne = () => {
     return (
-        <div>
+        <div className="bg-white">
             <Nav />
             <Outlet />
             <Footer />

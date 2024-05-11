@@ -13,7 +13,7 @@ const Footer = () => {
         <footer className='bg-center bg-cover bg-fixed border-t border-slate-700' style={{ backgroundImage: `url(${footerBg})` }}>
 
             <div className='grid grid-cols-1 lg:grid-cols-12  my-container py-24 text-white'>
-                <div className='flex justify-between col-span-3'>
+                <div className='flex justify-between lg:col-span-3'>
                     <ul className='space-y-3'>
                         <span className="footer-title">Products</span>
                         <li><Link>T shirt</Link></li>
@@ -30,9 +30,9 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className='col-span-6 flex justify-center items-center'>
+                <div className='lg:col-span-6 flex justify-center items-center'>
                     <MyMotion y={30}>
-                    <div className='rounded-full h-64 w-64 border flex flex-col justify-center items-center space-y-4'>
+                    <div className='rounded-full h-52 md:h-64 w-52 md:w-64 border flex flex-col justify-center items-center space-y-4'>
                         <h2 className='font-bold text-2xl text-red-500'>E-shop</h2>
                         <div className='relative'>
                             <p className='font-bold pb-2'>Established . 2020</p>
@@ -49,7 +49,7 @@ const Footer = () => {
 
                 </div>
 
-                <div className='col-span-3'>
+                <div className='lg:col-span-3'>
                     <ul className='space-y-3'>
                         <span className="footer-title">Legal</span>
                         <li><Link>Terms of use</Link></li>

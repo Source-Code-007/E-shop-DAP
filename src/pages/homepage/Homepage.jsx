@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MyMotion from "../../components/helpingCompo/MyMotion";
-import { GiLinkedRings } from "react-icons/gi";
 import ProductDetailsModal from "../../components/helpingCompo/ProductDetailsModal";
 import ProductCard from "../../components/homepage/ProductCard";
 
@@ -30,13 +28,13 @@ const Homepage = () => {
 
     return (
         <section className="p-2 font-bold py-[100px]">
-            <MyMotion y={20}>
-            <div className="my-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
-                {products.map((product, ind) => {
+            {products?.length>0 ?<div className="my-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
+                { products.map((product, ind) => {
                     return  <ProductCard key={ind} productDetails={product} setProduct={setProduct}/>
-                })}
-            </div>
-                </MyMotion>
+                }) }
+            </div>  : <div className="h-[94vh] flex items-center justify-center">
+                    <h2 className="bg-white shadow-md p-2">Products not found!</h2>
+            </div>}
 
 
             {/* Product details  modal */}

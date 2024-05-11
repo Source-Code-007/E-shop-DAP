@@ -20,9 +20,9 @@ const ProductDetailsModal = ({ product }) => {
 
     return (
         <dialog id="productDetailsModal" className="modal">
-            <div className="modal-box">
+            <div className="modal-box bg-white text-black">
 
-                <div className="space-y-3 text-gray-600 mt-[10px]">
+                <div className="space-y-3  text-gray-600 mt-[10px]">
                     <img src={image} alt={title} className="w-full h-[160px] md:h-[220px] group-hover:scale-105 transition-all mb-2" />
                     <p className="text-lg flex gap-1 items-center"> <BiCategory /> {category}</p>
                     <h2 className="font-semibold text-xl md:text-3xl text-black">{title}</h2>
@@ -36,7 +36,7 @@ const ProductDetailsModal = ({ product }) => {
                         <button className="h-6 w-6 rounded-full flex justify-center items-center bg-orange-500 shadow-md absolute top-1 right-1"><FaXmark /></button>
 
                         {/* Print */}
-                        <span onClick={() => { handlePrint() }} className="h-6 w-6 rounded-full flex justify-center items-center bg-[#0f1d22] text-white shadow-md absolute top-1 right-10 cursor-pointer"><BiPrinter /></span>
+                        <span onClick={() => { handlePrint() }} className="h-6 w-6 rounded-full hidden md:flex justify-center items-center bg-[#0f1d22] text-white shadow-md absolute top-1 right-10 cursor-pointer "><BiPrinter /></span>
                     </form>
                 </div>
 
